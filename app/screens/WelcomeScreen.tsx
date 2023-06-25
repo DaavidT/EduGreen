@@ -1,47 +1,37 @@
-import { observer } from "mobx-react-lite"
+import { Image, ImageBackground, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
+
 import React, { FC } from "react"
-import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
-import {
-  Text,
-} from "../components"
+
+import { observer } from "mobx-react-lite"
+
+import { Text } from "../components"
 import { isRTL } from "../i18n"
+import { AppStackScreenProps } from "../navigators"
 import { colors, spacing } from "../theme"
 import { useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"
 
-const welcomeLogo = require("../../assets/images/logo.png")
-const welcomeFace = require("../../assets/images/welcome-face.png")
+const backgroundImage = require("../../assets/images/welcomePageBackground.jpg")
 
 interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> {}
 
-export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeScreen(
-) {
-
+export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeScreen(props) {
   const $bottomContainerInsets = useSafeAreaInsetsStyle(["bottom"])
 
   return (
-    <View style={$container}>
-      <View style={$topContainer}>
-        <Image style={$welcomeLogo} source={welcomeLogo} resizeMode="contain" />
-        <Text
-          testID="welcome-heading"
-          style={$welcomeHeading}
-          tx="welcomeScreen.readyForLaunch"
-          preset="heading"
-        />
-        <Text tx="welcomeScreen.exciting" preset="subheading" />
-        <Image style={$welcomeFace} source={welcomeFace} resizeMode="contain" />
-      </View>
-
-      <View style={[$bottomContainer, $bottomContainerInsets]}>
-        <Text tx="welcomeScreen.postscript" size="md" />
-      </View>
+    <View style={{ flex: 1 }}>
+      <ImageBackground source={backgroundImage} style={$container}>
+        <View style={$topContainer}>
+          <Text style={$welcomeHeading} tx="welcomeScreen.welcome" />
+          <Text tx="welcomeScreen.welcomeMessage" />
+        </View>
+      </ImageBackground>
     </View>
   )
 })
 
-const $container: ViewStyle = {
+const $container: ImageStyle = {
   flex: 1,
-  backgroundColor: colors.background,
+  resizeMode: "contain",
 }
 
 const $topContainer: ViewStyle = {
