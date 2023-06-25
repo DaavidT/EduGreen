@@ -5,11 +5,8 @@ const es = {
     back: "Atras",
   },
   welcomeScreen: {
-    welcome: "Bienvenido a Edu Green!",
-    welcomeMessage: "Una aplicación donde puedes aprender sobre el medio ambiente",
-    postscript:
-      "Esta es la primera pantalla que verá un usuario. Puede ser útil para mostrar una animación de carga o una pantalla de bienvenida.",
-    readyForLaunch: "!Bienvenido a edu green!",
+    welcome: "GreenEduca: Descubre la Sustentabilidad",
+    welcomeMessage: "Explora, Aprende y Actúa para un Futuro Sostenible",
     exciting: "Una aplicación donde puedes aprender sobre el medio ambiente",
   },
   errorScreen: {

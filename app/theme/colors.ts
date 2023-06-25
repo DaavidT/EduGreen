@@ -1,20 +1,26 @@
 // TODO: write documentation for colors and palette in own markdown file and add links from here
+import { Theme } from "@react-navigation/native"
 
 const palette = {
   neutral100: "#FFFFFF",
-  neutral200: "#F4F2F1",
-  neutral300: "#D7CEC9",
+  //Background Light
+  neutral200: "#F9FAFB",
+  // Text Dark
+  neutral300: "#F5F5F5",
   neutral400: "#B6ACA6",
   neutral500: "#978F8A",
   neutral600: "#564E4A",
   neutral700: "#3C3836",
-  neutral800: "#191015",
+  //Background Dark && Text Light
+  neutral800: "#171717",
   neutral900: "#000000",
 
-  primary100: "#F4E0D9",
-  primary200: "#E8C1B4",
-  primary300: "#DDA28E",
-  primary400: "#D28468",
+  primary100: "#8DD4DF",
+  //Background TextInput Dark
+  primary200: "#262626",
+  //Background TextInput Light
+  primary300: "#F3F4F6",
+  primary400: "#62949C",
   primary500: "#C76542",
   primary600: "#A54F31",
 
@@ -23,6 +29,9 @@ const palette = {
   secondary300: "#9196B9",
   secondary400: "#626894",
   secondary500: "#41476E",
+
+  link100: "#71717A",
+  link200: "#8DD4DF",
 
   accent100: "#FFEED4",
   accent200: "#FFE1B2",
@@ -35,6 +44,8 @@ const palette = {
 
   overlay20: "rgba(25, 16, 21, 0.2)",
   overlay50: "rgba(25, 16, 21, 0.5)",
+
+  darkInputText: "#525252",
 } as const
 
 export const colors = {
@@ -48,18 +59,6 @@ export const colors = {
    * A helper for making something see-thru.
    */
   transparent: "rgba(0, 0, 0, 0)",
-  /**
-   * The default text color in many components.
-   */
-  text: palette.neutral800,
-  /**
-   * Secondary text information.
-   */
-  textDim: palette.neutral600,
-  /**
-   * The default color of the screen background.
-   */
-  background: palette.neutral200,
   /**
    * The default border color.
    */
@@ -81,4 +80,32 @@ export const colors = {
    *
    */
   errorBackground: palette.angry100,
+}
+
+export const LightTheme: Theme = {
+  dark: false,
+  colors: {
+    primary: palette.primary100,
+    background: palette.neutral200,
+    card: palette.neutral200,
+    text: palette.neutral800,
+    border: palette.neutral200,
+    notification: palette.primary100,
+    transparent05: "rgba(255, 255, 255, 0.5)",
+    transparentInverse: "rgba(0, 0, 0, 0.5)",
+  },
+}
+
+export const DarkTheme: Theme = {
+  dark: true,
+  colors: {
+    primary: palette.primary100,
+    background: palette.neutral800,
+    card: palette.neutral800,
+    text: palette.neutral300,
+    border: palette.neutral800,
+    notification: palette.primary100,
+    transparent05: "rgba(0, 0, 0, 0.5)",
+    transparentInverse: "rgba(255, 255, 255, 0.5)",
+  },
 }

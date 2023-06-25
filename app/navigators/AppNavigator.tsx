@@ -4,19 +4,18 @@
  * Generally speaking, it will contain an auth flow (registration, login, forgot password)
  * and a "main" flow which the user will use once logged in.
  */
-import {
-  DarkTheme,
-  DefaultTheme,
-  NavigationContainer,
-} from "@react-navigation/native"
-import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack"
-import { observer } from "mobx-react-lite"
-import React from "react"
 import { useColorScheme } from "react-native"
+
+import React from "react"
+
+import { NavigationContainer, useTheme } from "@react-navigation/native"
+import { NativeStackScreenProps, createNativeStackNavigator } from "@react-navigation/native-stack"
 import * as Screens from "app/screens"
+import { observer } from "mobx-react-lite"
+
 import Config from "../config"
+import { DarkTheme, LightTheme } from "../theme"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
-import { colors } from "app/theme"
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -33,8 +32,7 @@ import { colors } from "app/theme"
  */
 export type AppStackParamList = {
   Welcome: undefined
-  // 🔥 Your screens go here
-  // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
+  Login: undefined
 }
 
 /**
@@ -53,12 +51,9 @@ const Stack = createNativeStackNavigator<AppStackParamList>()
 
 const AppStack = observer(function AppStack() {
   return (
-    <Stack.Navigator
-      screenOptions={{ headerShown: false, navigationBarColor: colors.background }}
-    >
-          <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
-      {/** 🔥 Your screens go here */}
-      {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+    <Stack.Navigator screenOptions={{ headerShown: false, navigationBarColor: "transparent" }}>
+      <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
+      <Stack.Screen name="Login" component={Screens.LoginScreen} />
     </Stack.Navigator>
   )
 })
@@ -74,7 +69,7 @@ export const AppNavigator = observer(function AppNavigator(props: NavigationProp
   return (
     <NavigationContainer
       ref={navigationRef}
-      theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+      theme={colorScheme === "dark" ? DarkTheme : LightTheme}
       {...props}
     >
       <AppStack />

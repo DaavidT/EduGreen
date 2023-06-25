@@ -1,6 +1,3 @@
-import { useScrollToTop } from "@react-navigation/native"
-import { StatusBar, StatusBarProps } from "expo-status-bar"
-import React, { useRef, useState } from "react"
 import {
   KeyboardAvoidingView,
   KeyboardAvoidingViewProps,
@@ -12,6 +9,12 @@ import {
   View,
   ViewStyle,
 } from "react-native"
+
+import React, { useRef, useState } from "react"
+
+import { useScrollToTop, useTheme } from "@react-navigation/native"
+import { StatusBar, StatusBarProps } from "expo-status-bar"
+
 import { colors } from "../theme"
 import { ExtendedEdge, useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"
 
@@ -188,13 +191,15 @@ function ScreenWithScrolling(props: ScreenProps) {
 }
 
 export function Screen(props: ScreenProps) {
+  const theme = useTheme()
+  const { colors } = theme
   const {
     backgroundColor = colors.background,
     KeyboardAvoidingViewProps,
     keyboardOffset = 0,
     safeAreaEdges,
     StatusBarProps,
-    statusBarStyle = "dark",
+    statusBarStyle = theme.dark ? "light" : "dark",
   } = props
 
   const $containerInsets = useSafeAreaInsetsStyle(safeAreaEdges)
