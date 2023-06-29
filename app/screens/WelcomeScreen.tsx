@@ -23,7 +23,7 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
   const { navigation } = props
 
   const goNext = () => {
-    navigation.navigate("Login")
+    navigation.navigate("Home")
   }
 
   return (
@@ -34,12 +34,7 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
           <Text preset="subheading" tx="welcomeScreen.welcomeMessage" />
         </View>
         <View style={$bottomContainer}>
-          <Button
-            mode="contained"
-            textColor={themeColor.text}
-            buttonColor="#041d1a"
-            onPress={goNext}
-          >
+          <Button mode="contained" textColor={"#ffff"} buttonColor="#041d1a" onPress={goNext}>
             Continuar
           </Button>
         </View>

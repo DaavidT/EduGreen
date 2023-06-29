@@ -10,6 +10,7 @@ import React from "react"
 
 import { NavigationContainer, useTheme } from "@react-navigation/native"
 import { NativeStackScreenProps, createNativeStackNavigator } from "@react-navigation/native-stack"
+import app from "app/components/hooks/firebaseConfig"
 import * as Screens from "app/screens"
 import { observer } from "mobx-react-lite"
 
@@ -33,6 +34,7 @@ import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
 export type AppStackParamList = {
   Welcome: undefined
   Login: undefined
+  Home: undefined
 }
 
 /**
@@ -54,6 +56,7 @@ const AppStack = observer(function AppStack() {
     <Stack.Navigator screenOptions={{ headerShown: false, navigationBarColor: "transparent" }}>
       <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
       <Stack.Screen name="Login" component={Screens.LoginScreen} />
+      <Stack.Screen name="Home" component={Screens.HomeScreen} />
     </Stack.Navigator>
   )
 })
@@ -63,6 +66,8 @@ export interface NavigationProps
 
 export const AppNavigator = observer(function AppNavigator(props: NavigationProps) {
   const colorScheme = useColorScheme()
+  // Inicializamos la app con la configuración de firebase
+  const firebaseConfig = app
 
   useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
 

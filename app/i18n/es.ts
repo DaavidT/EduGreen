@@ -5,7 +5,7 @@ const es = {
     back: "Atras",
   },
   welcomeScreen: {
-    welcome: "GreenEduca: Descubre la Sustentabilidad",
+    welcome: "EduGreen: Descubre la Sustentabilidad",
     welcomeMessage: "Explora, Aprende y Actúa para un Futuro Sostenible",
     exciting: "Una aplicación donde puedes aprender sobre el medio ambiente",
   },
