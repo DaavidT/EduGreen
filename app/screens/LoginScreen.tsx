@@ -16,6 +16,7 @@ import { observer } from "mobx-react-lite"
 interface LoginScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Login">> {}
 
 export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen() {
+  console.log("Login")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isButtonLoading, setIsButtonLoading] = useState(false)

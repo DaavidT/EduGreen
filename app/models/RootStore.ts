@@ -1,9 +1,12 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
 
+import { AuthenticationModel } from "./Authentication"
+
 /**
  * A RootStore model.
  */
 export const RootStoreModel = types.model("RootStore").props({
+  authenticationLogin: types.optional(AuthenticationModel, {}),
 })
 
 /**

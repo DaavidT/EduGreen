@@ -10,7 +10,9 @@ import React from "react"
 
 import { NavigationContainer, useTheme } from "@react-navigation/native"
 import { NativeStackScreenProps, createNativeStackNavigator } from "@react-navigation/native-stack"
+import { Navbar } from "app/components"
 import app from "app/components/hooks/firebaseConfig"
+import { useStores } from "app/models"
 import * as Screens from "app/screens"
 import { observer } from "mobx-react-lite"
 
@@ -52,11 +54,22 @@ export type AppStackScreenProps<T extends keyof AppStackParamList> = NativeStack
 const Stack = createNativeStackNavigator<AppStackParamList>()
 
 const AppStack = observer(function AppStack() {
+  const {
+    authenticationLogin: { authLogged },
+  } = useStores()
+
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false, navigationBarColor: "transparent" }}>
-      <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
-      <Stack.Screen name="Login" component={Screens.LoginScreen} />
-      <Stack.Screen name="Home" component={Screens.HomeScreen} />
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName={authLogged ? "Home" : "Welcome"}
+    >
+      {authLogged ? (
+        <>
+          <Stack.Screen name="Home" component={Screens.HomeScreen} />
+        </>
+      ) : (
+        <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
+      )}
     </Stack.Navigator>
   )
 })
@@ -68,6 +81,9 @@ export const AppNavigator = observer(function AppNavigator(props: NavigationProp
   const colorScheme = useColorScheme()
   // Inicializamos la app con la configuración de firebase
   const firebaseConfig = app
+  const {
+    authenticationLogin: { authLogged },
+  } = useStores()
 
   useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
 

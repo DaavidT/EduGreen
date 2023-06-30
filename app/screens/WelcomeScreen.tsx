@@ -4,6 +4,7 @@ import { Button } from "react-native-paper"
 import React, { FC } from "react"
 
 import { useTheme } from "@react-navigation/native"
+import { DialogName } from "app/components/DialogName"
 import { observer } from "mobx-react-lite"
 
 import { Text } from "../components"
@@ -14,17 +15,13 @@ import { colors, spacing } from "../theme"
 interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> {}
 
 export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeScreen(props) {
+  const [visible, setVisible] = React.useState(false)
   const theme = useTheme()
   const backgroundImageLight = require("../../assets/images/welcomeBackground.png")
   const backgroundImageDark = require("../../assets/images/welcomeBackgroundDark.png")
   const backgroundImage = theme.dark ? backgroundImageDark : backgroundImageLight
-  const themeColor = theme.colors
 
   const { navigation } = props
-
-  const goNext = () => {
-    navigation.navigate("Home")
-  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -34,9 +31,15 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
           <Text preset="subheading" tx="welcomeScreen.welcomeMessage" />
         </View>
         <View style={$bottomContainer}>
-          <Button mode="contained" textColor={"#ffff"} buttonColor="#041d1a" onPress={goNext}>
+          <Button
+            mode="contained"
+            textColor={"#ffff"}
+            buttonColor="#041d1a"
+            onPress={() => setVisible(true)}
+          >
             Continuar
           </Button>
+          <DialogName visible={visible} setVisible={setVisible} navigation={navigation} />
         </View>
       </ImageBackground>
     </View>
