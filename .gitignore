@@ -2,6 +2,7 @@
 #
 .DS_Store
 
+
 # Xcode
 #
 build/
@@ -84,3 +85,7 @@ web-build/
 
 # Configurations
 !env.js
+.env.dev
+.env
+%ProgramData%/Microsoft/Windows/UUS/State/_active.uusver
+.npmrc
