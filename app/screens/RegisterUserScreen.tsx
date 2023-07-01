@@ -1,9 +1,12 @@
-import { ViewStyle } from "react-native"
+import { View, ViewStyle } from "react-native"
+import { TextInput } from "react-native-paper"
 
-import React, { FC } from "react"
+import React, { FC, ReactNode } from "react"
 
+import { faEye } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { Screen, Text } from "app/components"
+import { Screen, Text, TextField } from "app/components"
 import { AppStackScreenProps } from "app/navigators"
 import { observer } from "mobx-react-lite"
 
@@ -15,18 +18,30 @@ interface RegisterUserScreenProps
 
 export const RegisterUserScreen: FC<RegisterUserScreenProps> = observer(
   function RegisterUserScreen() {
-    // Pull in one of our MST stores
-    // const { someStore, anotherStore } = useStores()
+    const renderPasswordAccessory: any = () => {
+      return <FontAwesomeIcon icon={faEye} size={20} />
+    }
 
-    // Pull in navigation via hook
-    // const navigation = useNavigation()
     return (
       <Screen style={$root} preset="scroll">
-        <Text text="registerUser" />
+        <View style={{ height: 100 }} />
+        <TextInput label="Nombre" mode="flat" />
+        <TextInput label="Apellido" mode="flat" />
+        <TextInput label="Edad" mode="flat" />
+        <TextInput label="Correo" mode="flat" />
+        <TextInput label="Contraseña" mode="flat" />
+        <TextInput
+          label="Confirmar contraseña"
+          mode="flat"
+          secureTextEntry
+          right={<TextInput.Icon icon="eye" />}
+        />
+
+        <View style={{ height: 100 }} />
       </Screen>
     )
   },
-)
+)a
 
 const $root: ViewStyle = {
   flex: 1,
