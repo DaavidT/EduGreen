@@ -4,7 +4,7 @@ import { Theme } from "@react-navigation/native"
 const palette = {
   neutral100: "#FFFFFF",
   //Background Light
-  neutral200: "#F9FAFB",
+  neutral200: "#639e64",
   // Text Dark
   neutral300: "#F5F5F5",
   neutral400: "#B6ACA6",
@@ -12,7 +12,7 @@ const palette = {
   neutral600: "#564E4A",
   neutral700: "#3C3836",
   //Background Dark && Text Light
-  neutral800: "#171717",
+  neutral800: "#24531f",
   neutral900: "#000000",
 
   primary100: "#8DD4DF",

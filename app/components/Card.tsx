@@ -1,4 +1,3 @@
-import React, { ComponentType, Fragment, ReactElement } from "react"
 import {
   StyleProp,
   TextStyle,
@@ -7,6 +6,9 @@ import {
   View,
   ViewStyle,
 } from "react-native"
+
+import React, { ComponentType, Fragment, ReactElement } from "react"
+
 import { colors, spacing } from "../theme"
 import { Text, TextProps } from "./Text"
 

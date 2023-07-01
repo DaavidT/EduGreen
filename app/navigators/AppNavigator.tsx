@@ -94,6 +94,7 @@ export const AppNavigator = observer(function AppNavigator(props: NavigationProp
       {...props}
     >
       <AppStack />
+      {authLogged ? <Navbar navigation={navigationRef} /> : null}
     </NavigationContainer>
   )
 })

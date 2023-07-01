@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { faBell, faLightbulb, faNewspaper, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
+import { useTheme } from "@react-navigation/native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "app/navigators"
 
@@ -12,6 +13,8 @@ type NavbarProps = {
 }
 
 export const Navbar = (props: NavbarProps) => {
+  const theme = useTheme()
+  const colors = theme.colors
   const { navigation } = props
 
   return (
@@ -31,7 +34,7 @@ export const Navbar = (props: NavbarProps) => {
         <View
           style={{
             height: 73,
-            backgroundColor: "#262626",
+            backgroundColor: colors.background,
             position: "absolute",
             bottom: 0,
             left: 0,

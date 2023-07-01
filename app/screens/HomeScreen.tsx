@@ -13,7 +13,7 @@ import {
 import React, { FC, useEffect, useState } from "react"
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { Screen, Text } from "app/components"
+import { Card, Screen, Text } from "app/components"
 import { Navbar } from "app/components/BottomNavbar"
 import { useStores } from "app/models"
 import { AppStackScreenProps } from "app/navigators"
@@ -68,9 +68,31 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen({
 
   return (
     <Screen style={styles.container} preset="scroll" safeAreaEdges={["top", "bottom"]}>
-      <Text text="Bienvenido a EduGreen" preset="heading" />
-      <Text text={getAuthUser} preset="heading" />
-      <Text text="Se muestran algunas infografias que te pueden interesar" preset="subheading" />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          paddingHorizontal: 50,
+          paddingTop: 20,
+        }}
+      >
+        <Text text={getAuthUser} preset="heading" />
+      </View>
+      <Card
+        verticalAlignment="center"
+        heading="Bienvenido a EduGreen " // Aquí va el nombre del usuario
+        headingStyle={{ textAlign: "center", fontSize: 24, fontWeight: "bold" }}
+        content="Nuestra meta es dar a conocer información para que ayudes al planeta"
+        contentStyle={{ textAlign: "left", fontSize: 18 }}
+        style={{
+          backgroundColor: "#0bd17f",
+          marginVertical: 10,
+          marginHorizontal: 50,
+          height: 200,
+          borderColor: "#0bd17f",
+        }}
+      />
       <Modal visible={modalVisible} transparent={true}>
         <View style={styles.modal}>
           <TouchableOpacity onPress={() => setModalVisible(false)}>
@@ -80,7 +102,6 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen({
         </View>
       </Modal>
       <View style={styles.imageContainer}>{images}</View>
-      <Navbar navigation={navigator} />
     </Screen>
   )
 })

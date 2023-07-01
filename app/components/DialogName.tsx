@@ -34,7 +34,6 @@ export const DialogName = observer(function DialogName(props: DialogNameProps) {
     setVisible(false)
     setAuthStatusTrue()
     setAuthUser(text)
-    navigation.navigate("Home")
   }
 
   return (
