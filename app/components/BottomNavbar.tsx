@@ -52,7 +52,7 @@ export const Navbar = (props: NavbarProps) => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("ExternalSources")}
         >
           <FontAwesomeIcon
             icon={faGlobe}
@@ -69,7 +69,7 @@ export const Navbar = (props: NavbarProps) => {
             alignItems: "center",
             marginLeft: 20,
           }}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("RegisterUser")}
         >
           <FontAwesomeIcon
             icon={faIdCard}
@@ -101,7 +101,7 @@ export const Navbar = (props: NavbarProps) => {
             alignItems: "center",
             marginRight: 20,
           }}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("SocialMedia")}
         >
           <FontAwesomeIcon
             icon={faNewspaper}
@@ -118,7 +118,7 @@ export const Navbar = (props: NavbarProps) => {
             alignItems: "center",
           }}
           onPress={() => {
-            navigation.navigate("Home")
+            navigation.navigate("Credits")
           }}
         >
           <FontAwesomeIcon
