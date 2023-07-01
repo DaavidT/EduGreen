@@ -35,8 +35,11 @@ import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
  */
 export type AppStackParamList = {
   Welcome: undefined
-  Login: undefined
   Home: undefined
+  RegisterUser: undefined
+  SocialMedia: undefined
+  Credits: undefined
+  ExternalSources: undefined
 }
 
 /**
@@ -66,6 +69,10 @@ const AppStack = observer(function AppStack() {
       {authLogged ? (
         <>
           <Stack.Screen name="Home" component={Screens.HomeScreen} />
+          <Stack.Screen name="ExternalSources" component={Screens.ExternalSourcesScreen} />
+          <Stack.Screen name="RegisterUser" component={Screens.RegisterUserScreen} />
+          <Stack.Screen name="SocialMedia" component={Screens.SocialMediaScreen} />
+          <Stack.Screen name="Credits" component={Screens.CreditsScreen} />
         </>
       ) : (
         <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
