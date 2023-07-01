@@ -1,8 +1,8 @@
-import { TouchableOpacity, View } from "react-native"
+import { Image, TouchableOpacity, View } from "react-native"
 
 import * as React from "react"
 
-import { faBell, faLightbulb, faNewspaper, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faGlobe, faIdCard, faNewspaper, faUserSecret } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { useTheme } from "@react-navigation/native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
@@ -13,6 +13,7 @@ type NavbarProps = {
 }
 
 export const Navbar = (props: NavbarProps) => {
+  const logo = require("../../assets/images/logo.png")
   const theme = useTheme()
   const colors = theme.colors
   const { navigation } = props
@@ -54,7 +55,7 @@ export const Navbar = (props: NavbarProps) => {
           onPress={() => navigation.navigate("Home")}
         >
           <FontAwesomeIcon
-            icon={faBell}
+            icon={faGlobe}
             style={{
               color: "white",
             }}
@@ -71,12 +72,27 @@ export const Navbar = (props: NavbarProps) => {
           onPress={() => navigation.navigate("Home")}
         >
           <FontAwesomeIcon
-            icon={faLightbulb}
+            icon={faIdCard}
             style={{
               color: "white",
             }}
             size={32}
           />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#0c494f",
+            width: 60,
+            height: 60,
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: 999999,
+            marginHorizontal: 25,
+          }}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Image source={logo} style={{ width: "100%", height: "100%" }} />
         </TouchableOpacity>
         <TouchableOpacity
           style={{
@@ -106,7 +122,7 @@ export const Navbar = (props: NavbarProps) => {
           }}
         >
           <FontAwesomeIcon
-            icon={faUser}
+            icon={faUserSecret}
             style={{
               color: "white",
             }}
