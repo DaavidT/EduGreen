@@ -5,14 +5,13 @@
  * See the [Backend API Integration](https://github.com/infinitered/ignite/blob/master/docs/Backend-API-Integration.md)
  * documentation for more details.
  */
-import {
-  ApisauceInstance,
-  create,
-} from "apisauce"
+import { ApisauceInstance, create } from "apisauce"
+import { dbFirestore } from "app/components/hooks/firebaseConfig"
+import * as Crypto from "expo-crypto"
+import { doc, setDoc } from "firebase/firestore"
+
 import Config from "../../config"
-import type {
-  ApiConfig,
-} from "./api.types"
+import type { ApiConfig } from "./api.types"
 
 /**
  * Configuring the apisauce instance.
@@ -44,6 +43,27 @@ export class Api {
     })
   }
 
+  async writeUserData(
+    name: string,
+    lastName: string,
+    email: string,
+    age: number,
+    comments: string,
+  ) {
+    const userID = Crypto.randomUUID()
+    const db = dbFirestore
+    const date = new Date()
+    const fecha_creacion = date.getDate() + "-" + date.getMonth() + 1 + "-" + date.getFullYear()
+
+    await setDoc(doc(db, "users", userID), {
+      nombre: name,
+      apellido: lastName,
+      edad: age,
+      correo: email,
+      cometntarios: comments,
+      fecha_creacion: fecha_creacion,
+    })
+  }
 }
 
 // Singleton instance of the API for convenience

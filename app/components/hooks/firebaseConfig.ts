@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app"
+import { getDatabase } from "firebase/database"
+import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: process.env.apiKey,
@@ -7,8 +9,9 @@ const firebaseConfig = {
   storageBucket: process.env.storageBucket,
   messagingSenderId: process.env.messagingSenderId,
   appId: process.env.appId,
+  databaseURL: process.env.databaseURL,
 }
 
-const app = initializeApp(firebaseConfig)
-
-export default app
+export const app = initializeApp(firebaseConfig)
+export const database = getDatabase(app)
+export const dbFirestore = getFirestore(app)

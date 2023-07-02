@@ -9,6 +9,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { Screen, Text, TextField } from "app/components"
 import { RegisterUserForm } from "app/components/RegisterUserForm"
 import { AppStackScreenProps } from "app/navigators"
+import { api } from "app/services/api"
 import { observer } from "mobx-react-lite"
 
 interface RegisterUserScreenProps
@@ -16,6 +17,10 @@ interface RegisterUserScreenProps
 
 export const RegisterUserScreen: FC<RegisterUserScreenProps> = observer(
   function RegisterUserScreen() {
+    const onSubmit = (data) => {
+      //const response = api.writeUserData()
+    }
+
     return (
       <Screen style={$root} preset="scroll" safeAreaEdges={["top", "left"]}>
         <Text
@@ -24,7 +29,7 @@ export const RegisterUserScreen: FC<RegisterUserScreenProps> = observer(
           style={$title}
         />
         <View style={$cardContainer}>
-          <RegisterUserForm />
+          <RegisterUserForm onSubmit={(data) => onSubmit(data)} />
         </View>
       </Screen>
     )
