@@ -41,7 +41,7 @@ export const RegisterUserScreen: FC<RegisterUserScreenProps> = observer(
       </Screen>
     )
   },
-)a
+)
 
 const $root: ViewStyle = {
   flex: 1,
