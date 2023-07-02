@@ -12,7 +12,7 @@ const palette = {
   neutral600: "#564E4A",
   neutral700: "#3C3836",
   //Background Dark && Text Light
-  neutral800: "#24531f",
+  neutral800: "#243d1e",
   neutral900: "#000000",
 
   primary100: "#8DD4DF",
@@ -29,6 +29,14 @@ const palette = {
   secondary300: "#9196B9",
   secondary400: "#626894",
   secondary500: "#41476E",
+
+  greenlight: "#a6e094",
+
+  green100: "#48793c",
+  green200: "#365b2d",
+  green300: "#243d1e",
+  green400: "#121e0f",
+  green500: "#000000",
 
   link100: "#71717A",
   link200: "#8DD4DF",

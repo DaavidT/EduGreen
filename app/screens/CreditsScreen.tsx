@@ -15,7 +15,7 @@ export const CreditsScreen: FC<CreditsScreenProps> = observer(function CreditsSc
       style={$root}
       preset="fixed"
       safeAreaEdges={["top"]}
-      contentContainerStyle={{ backgroundColor: "#25243b" }}
+      contentContainerStyle={{ backgroundColor: "#365b2d" }}
     >
       <Text text="Créditos" preset="heading" style={$title} />
       <Text text="Encuéntrame en las redes sociales" preset="subheading" style={$title} />
