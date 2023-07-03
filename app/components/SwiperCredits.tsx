@@ -1,12 +1,9 @@
-import { Linking, StyleProp, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
+import { StyleProp, TextStyle, View, ViewStyle } from "react-native"
 import Swiper from "react-native-swiper"
 
 import * as React from "react"
 
-import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { Text } from "app/components/Text"
-import { colors, typography } from "app/theme"
 import { observer } from "mobx-react-lite"
 
 export interface SwiperCreditsProps {
@@ -64,7 +61,6 @@ export const SwiperCredits = observer(function SwiperCredits(props: SwiperCredit
       autoplayTimeout={5}
       loop
       showsHorizontalScrollIndicator
-      automaticallyAdjustContentInsets
     >
       {data.map((item, index) => (
         <View key={index} style={$cardContainer}>
@@ -109,6 +105,6 @@ const $cardContainer: ViewStyle = {
   justifyContent: "center",
   alignItems: "center",
   backgroundColor: "#427a36",
-  height: "80%",
   marginHorizontal: 20,
+  borderRadius: 10,
 }

@@ -1,57 +1,54 @@
-import { TextStyle, ViewStyle } from "react-native"
+import { Animated, ScrollView, TextStyle, ViewStyle } from "react-native"
 
-import React, { FC } from "react"
+import React, { FC, useRef } from "react"
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { Screen, SwiperCard, Text } from "app/components"
+import { Screen, SwiperCard, Text, TitleLayout } from "app/components"
+import { SwiperCardExternalMedia } from "app/components/SwiperCardExternalMedia"
 import { AppStackScreenProps } from "app/navigators"
 import { observer } from "mobx-react-lite"
-
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "app/models"
 
 interface SocialMediaScreenProps
   extends NativeStackScreenProps<AppStackScreenProps<"SocialMedia">> {}
 
 export const SocialMediaScreen: FC<SocialMediaScreenProps> = observer(function SocialMediaScreen() {
-  // Pull in one of our MST stores
-  // const { someStore, anotherStore } = useStores()
-
-  // Pull in navigation via hook
-  // const navigation = useNavigation()
+  const scrollY = useRef(new Animated.Value(0)).current
   return (
-    <Screen
-      style={$root}
-      preset="fixed"
-      safeAreaEdges={["top"]}
-      contentContainerStyle={{ backgroundColor: "#365b2d", height: "100%" }}
-    >
-      <Text text="Redes Sociales" preset="heading" style={$title} />
-      <Text text="Encuéntrame en las redes sociales" preset="subheading" style={$subTitle} />
+    <TitleLayout title="Redes Sociales" scrollY={scrollY}>
       <Text
-        text="¡Te invito a seguirme para obtener más información sobre el proyecto y el desarrollo sustentable!"
+        text="Síguenos redes sociales"
         preset="subheading"
-        style={$subTitle}
+        style={{ ...$subTitle, paddingTop: 120, paddingBottom: 20 }}
       />
-      <SwiperCard style={{ height: "60%", marginHorizontal: 20 }} />
-    </Screen>
+      <ScrollView>
+        <Text text="Redes sociales del desarrollador" style={$cardTitle} />
+        <SwiperCard style={$swiperCardStyle} />
+
+        <Text
+          text="Redes sociales de los movimientos más importantes del desarrollo sustentable"
+          style={$cardTitle}
+        />
+        <SwiperCardExternalMedia style={$swiperCardStyle} />
+      </ScrollView>
+    </TitleLayout>
   )
 })
 
-const $root: ViewStyle = {
-  flex: 1,
-  height: "50%",
-}
-
-const $title: TextStyle = {
-  textAlign: "center",
-  marginBottom: 16,
-  fontWeight: "bold",
-  marginTop: 32,
-}
 const $subTitle: TextStyle = {
-  marginHorizontal: 20,
-
+  marginHorizontal: 25,
   fontWeight: "bold",
   textAlign: "justify",
+}
+
+const $swiperCardStyle: ViewStyle = {
+  height: 200,
+  marginHorizontal: 20,
+  marginBottom: 25,
+}
+
+const $cardTitle: TextStyle = {
+  fontWeight: "bold",
+  fontSize: 18,
+  marginBottom: 10,
+  textAlign: "center",
 }

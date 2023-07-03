@@ -1,10 +1,9 @@
-import { TextStyle, View, ViewStyle } from "react-native"
-import Swiper from "react-native-swiper"
+import { Animated, View } from "react-native"
 
-import React, { FC } from "react"
+import React, { FC, useRef } from "react"
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { Screen, Text } from "app/components"
+import { TitleLayout } from "app/components"
 import { SwiperCredits } from "app/components/SwiperCredits"
 import { AppStackScreenProps } from "app/navigators"
 import { observer } from "mobx-react-lite"
@@ -12,27 +11,14 @@ import { observer } from "mobx-react-lite"
 interface CreditsScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Credits">> {}
 
 export const CreditsScreen: FC<CreditsScreenProps> = observer(function CreditsScreen() {
+  const scrollY = useRef(new Animated.Value(0)).current
   return (
-    <Screen
-      style={$root}
-      preset="fixed"
-      safeAreaEdges={["top"]}
-      contentContainerStyle={{ backgroundColor: "#365b2d", height: "100%" }}
-    >
-      <Text text="Créditos" preset="heading" style={$title} />
-      <SwiperCredits></SwiperCredits>
-    </Screen>
+    <TitleLayout title="Créditos" scrollY={scrollY}>
+      <View style={{ height: 50 }}></View>
+      <View style={{ flex: 1, paddingTop: 120, marginBottom: 20 }}>
+        <SwiperCredits />
+      </View>
+      <View style={{ height: 100 }}></View>
+    </TitleLayout>
   )
 })
-
-const $root: ViewStyle = {
-  flex: 1,
-}
-
-const $title: TextStyle = {
-  textAlign: "center",
-  marginBottom: 16,
-  fontWeight: "bold",
-  marginTop: 32,
-  height: "10%",
-}

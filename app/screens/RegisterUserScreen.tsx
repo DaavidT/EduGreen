@@ -1,12 +1,19 @@
-import { TextStyle, View, ViewStyle } from "react-native"
+import { Animated, TextStyle, View, ViewStyle } from "react-native"
 import { Button, Card, TextInput } from "react-native-paper"
 
-import React, { FC, ReactNode, useState } from "react"
+import React, { FC, ReactNode, useRef, useState } from "react"
 
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { BackgroundTopLayout, RegisterSuccessCard, Screen, Text, TextField } from "app/components"
+import {
+  BackgroundTopLayout,
+  RegisterSuccessCard,
+  Screen,
+  Text,
+  TextField,
+  TitleLayout,
+} from "app/components"
 import { RegisterUserForm } from "app/components/RegisterUserForm"
 import { AppStackScreenProps } from "app/navigators"
 import { api } from "app/services/api"
@@ -18,6 +25,7 @@ interface RegisterUserScreenProps
 export const RegisterUserScreen: FC<RegisterUserScreenProps> = observer(
   function RegisterUserScreen() {
     const [isSuccess, setIsSuccess] = useState(false)
+    const scrollY = useRef(new Animated.Value(0)).current
 
     const onSubmit = async (data) => {
       try {
@@ -31,17 +39,7 @@ export const RegisterUserScreen: FC<RegisterUserScreenProps> = observer(
     }
 
     return (
-      <Screen
-        style={$root}
-        preset="fixed"
-        safeAreaEdges={["top"]}
-        contentContainerStyle={{ backgroundColor: "#365b2d", height: "100%" }}
-      >
-        <Text
-          text="Obtén mas información sobre el  desarrollo sustentable"
-          preset="subheading"
-          style={$title}
-        />
+      <TitleLayout title="Obtén mas información sobre el  desarrollo sustentable" scrollY={scrollY}>
         {!isSuccess ? (
           <View style={$cardContainer}>
             <RegisterUserForm onSubmit={(data) => onSubmit(data)} />
@@ -53,7 +51,7 @@ export const RegisterUserScreen: FC<RegisterUserScreenProps> = observer(
             </View>
           </>
         )}
-      </Screen>
+      </TitleLayout>
     )
   },
 )
@@ -63,7 +61,9 @@ const $root: ViewStyle = {
 }
 
 const $cardContainer: ViewStyle = {
+  flex: 1,
   marginHorizontal: 20,
+  paddingTop: 150,
 }
 
 const $title: TextStyle = {
@@ -78,4 +78,6 @@ const $successContainer: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
+  paddingTop: 150,
+  marginHorizontal: 20,
 }

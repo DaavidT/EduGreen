@@ -3,13 +3,13 @@ import Swiper from "react-native-swiper"
 
 import * as React from "react"
 
-import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faGlobe, faLeaf, faSeedling } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { Text } from "app/components/Text"
 import { colors, typography } from "app/theme"
 import { observer } from "mobx-react-lite"
 
-export interface SwiperCardProps {
+export interface SwiperCardExternalMediaProps {
   /**
    * An optional style override useful for padding & margin.
    */
@@ -19,7 +19,9 @@ export interface SwiperCardProps {
 /**
  * Describe your component here
  */
-export const SwiperCard = observer(function SwiperCard(props: SwiperCardProps) {
+export const SwiperCardExternalMedia = observer(function SwiperCardExternalMedia(
+  props: SwiperCardExternalMediaProps,
+) {
   const { style } = props
   const $styles = [$container, style]
 
@@ -34,29 +36,29 @@ export const SwiperCard = observer(function SwiperCard(props: SwiperCardProps) {
           style={$cardContainer}
           onPress={() => openUrl("https://github.com/DaavidT")}
         >
-          <FontAwesomeIcon icon={faGithub} size={50} color={colors.palette.greenlight} />
-          <Text text="Github" style={$text} />
+          <FontAwesomeIcon icon={faGlobe} size={50} color={colors.palette.greenlight} />
+          <Text text="Naciones Unidas" style={$text} />
           <Text
-            text="¡Bienvenido(a) a mi perfil de GitHub! Aquí encontrarás proyectos escolares y personales relacionados con el desarrollo sustentable. Explora mi repositorio y colabora en la construcción de soluciones sostenibles."
+            text="Las Naciones Unidas son una organización internacional fundada en 1945. Actualmente está integrada por 193 países miembros."
             style={$text}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={$cardContainer} onPress={() => openUrl("https://linkedin.com")}>
-          <FontAwesomeIcon icon={faLinkedin} size={50} color={colors.palette.greenlight} />
-          <Text text="Linkedin" style={$text} />
+        <TouchableOpacity style={$cardContainer} onPress={() => openUrl("https://news.un.org/es/")}>
+          <FontAwesomeIcon icon={faLeaf} size={50} color={colors.palette.greenlight} />
+          <Text text="Extinction Rebellion" style={$text} />
           <Text
-            text="Soy un desarrollador de software con experiencia en el desarrollo de aplicaciones móviles y web. Me considero una persona responsable, creativa y comprometida con el trabajo en equipo."
+            text="Busca promover cambios políticos y sociales significativos para abordar la emergencia ambiental."
             style={$text}
           />
         </TouchableOpacity>
         <TouchableOpacity
           style={$cardContainer}
-          onPress={() => openUrl("https://www.instagram.com/daavid_tal/")}
+          onPress={() => openUrl("https://rebellion.global/")}
         >
-          <FontAwesomeIcon icon={faInstagram} size={50} color={colors.palette.greenlight} />
-          <Text text="Instagram" style={$text} />
+          <FontAwesomeIcon icon={faSeedling} size={50} color={colors.palette.greenlight} />
+          <Text text="Fridays for Future" style={$text} />
           <Text
-            text="¡Bienvenido(a) a mi perfil de Instagram! Explora mi repositorio y colabora en la construcción de soluciones sostenibles."
+            text="Consiste en huelgas estudiantiles y manifestaciones pacíficas los viernes para exigir acciones urgentes contra el cambio climático por parte de los gobiernos y las instituciones."
             style={$text}
           />
         </TouchableOpacity>

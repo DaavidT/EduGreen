@@ -55,6 +55,7 @@ export const TitleLayout = memo(function TitleLayout(props: TitleLayoutProps) {
             paddingHorizontal: 32,
             color: "#F9FAFB",
             fontSize: 25,
+            fontWeight: "bold",
           }}
         >
           {title}
