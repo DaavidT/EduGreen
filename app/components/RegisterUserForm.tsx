@@ -36,15 +36,15 @@ export const RegisterUserForm = observer(function RegisterUserForm(props: Regist
     formState: { errors },
     setError,
   } = useForm<FormValues>()
-  // const { onSubmit } = props
-  const onSubmit = (data) => {
-    try {
-      const { name, lastName, age, email, comments } = data
-      const response = api.writeUserData(name, lastName, age, email, comments)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const { onSubmit } = props
+  // const onSubmit = (data) => {
+  //   try {
+  //     const { name, lastName, age, email, comments } = data
+  //     const response = api.writeUserData(name, lastName, age, email, comments)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   return (
     <ScrollView style={{}}>

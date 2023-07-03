@@ -42,7 +42,6 @@ export class Api {
       },
     })
   }
-
   async writeUserData(
     name: string,
     lastName: string,
@@ -50,19 +49,37 @@ export class Api {
     age: number,
     comments: string,
   ) {
-    const userID = Crypto.randomUUID()
-    const db = dbFirestore
-    const date = new Date()
-    const fecha_creacion = date.getDate() + "-" + date.getMonth() + 1 + "-" + date.getFullYear()
+    try {
+      // Genera un ID aleatorio para el usuario
+      const userID = Crypto.randomUUID()
+      // Referencia a la base de datos
+      const db = dbFirestore
+      // Obtener fecha actual y la formatea
+      const fecha_creacion = this.getActualDate()
 
-    await setDoc(doc(db, "users", userID), {
-      nombre: name,
-      apellido: lastName,
-      edad: age,
-      correo: email,
-      cometntarios: comments,
-      fecha_creacion: fecha_creacion,
-    })
+      await setDoc(doc(db, "users", userID), {
+        nombre: name,
+        apellido: lastName,
+        edad: age,
+        correo: email,
+        cometntarios: comments,
+        fecha_creacion: fecha_creacion,
+      })
+
+      // Se ejecuta si la escritura se completó sin errores
+      return { success: true, message: "Los datos se han subido correctamente" }
+    } catch (error) {
+      // Se ejecuta si ocurre algún error durante la escritura
+      return { success: false, message: "Error al subir los datos: " + error.message }
+    }
+  }
+
+  getActualDate() {
+    const date = new Date()
+    const day = String(date.getDate()).padStart(2, "0")
+    const month = String(date.getMonth() + 1).padStart(2, "0")
+    const year = String(date.getFullYear()).slice(-2)
+    return day + "-" + month + "-" + year
   }
 }
 

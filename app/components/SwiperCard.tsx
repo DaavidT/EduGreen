@@ -37,7 +37,7 @@ export const SwiperCard = observer(function SwiperCard(props: SwiperCardProps) {
           <FontAwesomeIcon icon={faGithub} size={50} color={colors.palette.greenlight} />
           <Text text="Github" style={$text} />
           <Text
-            text="Apasionado por el desarrollo sustentable y comprometido con hacer del mundo un lugar mejor. Comparto conocimientos y experiencias sobre proyectos escolares relacionados con la sustentabilidad. Únete a mi red para formar parte de una comunidad comprometida con el cambio positivo."
+            text="¡Bienvenido(a) a mi perfil de GitHub! Aquí encontrarás proyectos escolares y personales relacionados con el desarrollo sustentable. Explora mi repositorio y colabora en la construcción de soluciones sostenibles. ¡Juntos podemos marcar la diferencia!"
             style={$text}
           />
         </TouchableOpacity>
@@ -45,7 +45,7 @@ export const SwiperCard = observer(function SwiperCard(props: SwiperCardProps) {
           <FontAwesomeIcon icon={faLinkedin} size={50} color={colors.palette.greenlight} />
           <Text text="Linkedin" style={$text} />
           <Text
-            text="¡Bienvenido(a) a mi perfil de GitHub! Aquí encontrarás proyectos escolares y personales relacionados con el desarrollo sustentable. Explora mi repositorio y colabora en la construcción de soluciones sostenibles. ¡Juntos podemos marcar la diferencia!"
+            text="Apasionado por el desarrollo sustentable y comprometido con hacer del mundo un lugar mejor. Comparto conocimientos y experiencias sobre proyectos escolares relacionados con la sustentabilidad. Únete a mi red para formar parte de una comunidad comprometida con el cambio positivo."
             style={$text}
           />
         </TouchableOpacity>
@@ -74,6 +74,7 @@ const $cardContainer: ViewStyle = {
   justifyContent: "center",
   alignItems: "center",
   backgroundColor: "#427a36",
+  borderRadius: 20,
 }
 
 const $text: TextStyle = {

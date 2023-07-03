@@ -24,16 +24,16 @@ export const SocialMediaScreen: FC<SocialMediaScreenProps> = observer(function S
       style={$root}
       preset="fixed"
       safeAreaEdges={["top"]}
-      contentContainerStyle={{ backgroundColor: "#365b2d" }}
+      contentContainerStyle={{ backgroundColor: "#365b2d", height: "100%" }}
     >
       <Text text="Redes Sociales" preset="heading" style={$title} />
-      <Text text="Encuéntrame en las redes sociales" preset="subheading" style={$title} />
+      <Text text="Encuéntrame en las redes sociales" preset="subheading" style={$subTitle} />
       <Text
         text="¡Te invito a seguirme para obtener más información sobre el proyecto y el desarrollo sustentable!"
         preset="subheading"
-        style={$title}
+        style={$subTitle}
       />
-      <SwiperCard style={{ height: "65%", marginHorizontal: 20 }} />
+      <SwiperCard style={{ height: "60%", marginHorizontal: 20 }} />
     </Screen>
   )
 })
@@ -47,4 +47,11 @@ const $title: TextStyle = {
   textAlign: "center",
   marginBottom: 16,
   fontWeight: "bold",
+  marginTop: 32,
+}
+const $subTitle: TextStyle = {
+  marginHorizontal: 20,
+
+  fontWeight: "bold",
+  textAlign: "justify",
 }
