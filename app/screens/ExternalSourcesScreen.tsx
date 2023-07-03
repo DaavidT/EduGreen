@@ -1,10 +1,12 @@
-import { ViewStyle } from "react-native"
+import { Animated, View, ViewStyle } from "react-native"
+import { ActivityIndicator } from "react-native-paper"
 
-import React, { FC } from "react"
+import React, { FC, useEffect, useRef } from "react"
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { Screen, Text } from "app/components"
+import { ExternalSourceItem, Screen, Text } from "app/components"
 import { AppStackScreenProps } from "app/navigators"
+import { api } from "app/services/api"
 import { observer } from "mobx-react-lite"
 
 // import { useNavigation } from "@react-navigation/native"
@@ -14,16 +16,41 @@ interface ExternalSourcesScreenProps
   extends NativeStackScreenProps<AppStackScreenProps<"ExternalSources">> {}
 
 export const ExternalSourcesScreen: FC<ExternalSourcesScreenProps> = observer(
-  function ExternalSourcesScreen() {
-    // Pull in one of our MST stores
-    // const { someStore, anotherStore } = useStores()
+  function ExternalSourcesScreen({ navigation }) {
+    const [news, setNews] = React.useState([])
 
-    // Pull in navigation via hook
-    // const navigation = useNavigation()
+    useEffect(() => {
+      const news = async () => {
+        api.getNews().then((response) => {
+          setNews(response.data)
+        })
+      }
+      news()
+    }, [])
+
+    const scrollY = useRef(new Animated.Value(0)).current
+    const [isLoading, setIsLoading] = React.useState(false)
     return (
-      <Screen style={$root} preset="scroll">
-        <Text text="externalSources" />
-      </Screen>
+      <View style={{ flex: 1, backgroundColor: "#365b2d" }}>
+        <Animated.FlatList
+          style={{ flex: 1, paddingTop: 120, marginBottom: 20 }}
+          data={news}
+          renderItem={({ item }) => <ExternalSourceItem item={item} />}
+          keyExtractor={(item) => item.id.toString()}
+          onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
+            useNativeDriver: false,
+          })}
+          ListFooterComponent={
+            isLoading ? (
+              <ActivityIndicator size="large" color="green" style={{ marginBottom: 200 }} />
+            ) : (
+              <View style={{ height: 200 }}></View>
+            )
+          }
+          onEndReached={() => {}}
+          onEndReachedThreshold={0.1}
+        ></Animated.FlatList>
+      </View>
     )
   },
 )

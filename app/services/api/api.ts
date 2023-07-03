@@ -8,7 +8,7 @@
 import { ApisauceInstance, create } from "apisauce"
 import { dbFirestore } from "app/components/hooks/firebaseConfig"
 import * as Crypto from "expo-crypto"
-import { doc, setDoc } from "firebase/firestore"
+import { collection, doc, getDocs, setDoc } from "firebase/firestore"
 
 import Config from "../../config"
 import type { ApiConfig } from "./api.types"
@@ -42,6 +42,24 @@ export class Api {
       },
     })
   }
+
+  async getNews() {
+    try {
+      const db = dbFirestore
+      const newsRef = collection(db, "news")
+      const querySnapshot = await getDocs(newsRef)
+      const newsData = []
+
+      querySnapshot.forEach((doc) => {
+        newsData.push(doc.data())
+      })
+
+      return { success: true, data: newsData }
+    } catch (error) {
+      return { success: false, message: error.message }
+    }
+  }
+
   async writeUserData(
     name: string,
     lastName: string,
