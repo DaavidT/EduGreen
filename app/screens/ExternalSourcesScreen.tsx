@@ -4,7 +4,7 @@ import { ActivityIndicator } from "react-native-paper"
 import React, { FC, useEffect, useRef } from "react"
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { ExternalSourceItem, Screen, Text } from "app/components"
+import { ExternalSourceItem, Screen, Text, TitleLayout } from "app/components"
 import { AppStackScreenProps } from "app/navigators"
 import { api } from "app/services/api"
 import { observer } from "mobx-react-lite"
@@ -31,7 +31,7 @@ export const ExternalSourcesScreen: FC<ExternalSourcesScreenProps> = observer(
     const scrollY = useRef(new Animated.Value(0)).current
     const [isLoading, setIsLoading] = React.useState(false)
     return (
-      <View style={{ flex: 1, backgroundColor: "#365b2d" }}>
+      <TitleLayout title="Noticias" scrollY={scrollY}>
         <Animated.FlatList
           style={{ flex: 1, paddingTop: 120, marginBottom: 20 }}
           data={news}
@@ -50,7 +50,7 @@ export const ExternalSourcesScreen: FC<ExternalSourcesScreenProps> = observer(
           onEndReached={() => {}}
           onEndReachedThreshold={0.1}
         ></Animated.FlatList>
-      </View>
+      </TitleLayout>
     )
   },
 )
