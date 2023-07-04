@@ -20,23 +20,23 @@ export const SwiperCredits = observer(function SwiperCredits(props: SwiperCredit
   const data = [
     {
       title: "Investigación",
-      text: "En esta etapa se investiga sobre el tema a tratar, se analizan las necesidades del usuario y se definen los objetivos del proyecto.",
+      text: "Se define la estructura de la aplicación, se investigan las tecnologías a utilizar y se realiza un boceto siguiendo las indicaciones de la práctica.",
     },
     {
       title: "Diseño",
-      text: "En esta etapa se definen los requerimientos del proyecto, se realiza un prototipo y se diseña la interfaz de usuario.",
+      text: "Se comienza a maquetar la aplicación, se escoge react native como framework a utilizar, Firebase como backend y se comienza a desarrollar la aplicación a partir de una plantilla.",
     },
     {
       title: "Desarrollo",
-      text: "En esta etapa se desarrolla el proyecto, se implementan las funcionalidades y se realizan pruebas de funcionamiento.",
+      text: "Se comienza a desarrollar la aplicación a partir de una plantilla, se definen los colores y se comienza a maquetar la aplicación, la funcionalidad de la aplicación se va agregando a medida que se avanza en el desarrollo junto con la integración del backend.",
     },
     {
       title: "Pruebas",
-      text: "En esta etapa se realizan pruebas de funcionamiento, se corrigen errores y se optimiza el rendimiento.",
+      text: "Se valida que los campos esten correctamente validados, se realizan pruebas de usabilidad, se valida la base de datos y se corrigen errores.",
     },
     {
       title: "Publicación",
-      text: "En esta etapa se publica el proyecto en la tienda de aplicaciones y se realiza una campaña de marketing.",
+      text: "Se exporta en formato APK, se realizan pruebas en este formato y si se desea se publica en la Play Store.",
     },
     {
       title: "Mantenimiento",
@@ -50,6 +50,10 @@ export const SwiperCredits = observer(function SwiperCredits(props: SwiperCredit
       title: "Actualización",
       text: "En esta etapa se corregirán errores, se optimiza el rendimiento y se agregan nuevas funcionalidades.",
     },
+    {
+      title: "Créditos",
+      text: "Esta aplicación fue desarrollada por David Fernando Talavera Torres, estudiante de Ingeniería en Sistemas Computacionales en la Universidad Tecnológica de México, el código fuente se encuentra en mi perfil de GitHub",
+    },
   ]
 
   return (
@@ -58,7 +62,7 @@ export const SwiperCredits = observer(function SwiperCredits(props: SwiperCredit
       activeDotStyle={$activeDotStyle}
       autoplay
       horizontal={false}
-      autoplayTimeout={5}
+      autoplayTimeout={10}
       loop
       showsHorizontalScrollIndicator
     >

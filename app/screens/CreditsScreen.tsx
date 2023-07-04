@@ -13,7 +13,7 @@ interface CreditsScreenProps extends NativeStackScreenProps<AppStackScreenProps<
 export const CreditsScreen: FC<CreditsScreenProps> = observer(function CreditsScreen() {
   const scrollY = useRef(new Animated.Value(0)).current
   return (
-    <TitleLayout title="Créditos" scrollY={scrollY}>
+    <TitleLayout title="Etapas del desarrollo y créditos" scrollY={scrollY}>
       <View style={{ height: 50 }}></View>
       <View style={{ flex: 1, paddingTop: 120, marginBottom: 20 }}>
         <SwiperCredits />
