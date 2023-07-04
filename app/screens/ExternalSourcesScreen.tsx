@@ -4,7 +4,7 @@ import { ActivityIndicator } from "react-native-paper"
 import React, { FC, useEffect, useRef } from "react"
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { ExternalSourceItem, Screen, Text, TitleLayout } from "app/components"
+import { ExternalSourceItem, TitleLayout } from "app/components"
 import { AppStackScreenProps } from "app/navigators"
 import { api } from "app/services/api"
 import { observer } from "mobx-react-lite"

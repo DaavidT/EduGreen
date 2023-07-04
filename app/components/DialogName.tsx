@@ -4,7 +4,6 @@ import { Button } from "react-native-paper"
 import * as React from "react"
 
 import { useStores } from "app/models"
-import { colors, typography } from "app/theme"
 import { observer } from "mobx-react-lite"
 
 import { Text, TextField } from "../components"

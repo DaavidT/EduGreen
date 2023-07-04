@@ -3,7 +3,7 @@ import { Animated, ScrollView, TextStyle, ViewStyle } from "react-native"
 import React, { FC, useRef } from "react"
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { Screen, SwiperCard, Text, TitleLayout } from "app/components"
+import { SwiperCard, Text, TitleLayout } from "app/components"
 import { SwiperCardExternalMedia } from "app/components/SwiperCardExternalMedia"
 import { AppStackScreenProps } from "app/navigators"
 import { observer } from "mobx-react-lite"

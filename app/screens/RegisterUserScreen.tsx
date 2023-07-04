@@ -1,19 +1,9 @@
 import { Animated, TextStyle, View, ViewStyle } from "react-native"
-import { Button, Card, TextInput } from "react-native-paper"
 
-import React, { FC, ReactNode, useRef, useState } from "react"
+import React, { FC, useRef, useState } from "react"
 
-import { faEye } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import {
-  BackgroundTopLayout,
-  RegisterSuccessCard,
-  Screen,
-  Text,
-  TextField,
-  TitleLayout,
-} from "app/components"
+import { RegisterSuccessCard, TitleLayout } from "app/components"
 import { RegisterUserForm } from "app/components/RegisterUserForm"
 import { AppStackScreenProps } from "app/navigators"
 import { api } from "app/services/api"
@@ -56,22 +46,10 @@ export const RegisterUserScreen: FC<RegisterUserScreenProps> = observer(
   },
 )
 
-const $root: ViewStyle = {
-  flex: 1,
-}
-
 const $cardContainer: ViewStyle = {
   flex: 1,
   marginHorizontal: 20,
   paddingTop: 150,
-}
-
-const $title: TextStyle = {
-  marginTop: 32,
-  marginBottom: 16,
-  marginHorizontal: 20,
-  fontSize: 24,
-  fontWeight: "bold",
 }
 
 const $successContainer: ViewStyle = {

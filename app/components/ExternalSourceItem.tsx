@@ -1,17 +1,9 @@
-import {
-  Image,
-  Linking,
-  StyleSheet,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from "react-native"
+import { Image, Linking, StyleSheet, TouchableOpacity } from "react-native"
 
 import React, { FC } from "react"
 
 import { Text } from "app/components/Text"
-import { colors, typography } from "app/theme"
+import { typography } from "app/theme"
 
 interface ExternalSourceItemProps {
   item: {

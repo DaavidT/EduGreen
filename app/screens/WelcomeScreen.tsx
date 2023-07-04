@@ -1,4 +1,4 @@
-import { Image, ImageBackground, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
+import { ImageBackground, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
 import { Button } from "react-native-paper"
 
 import React, { FC } from "react"
@@ -8,9 +8,8 @@ import { DialogName } from "app/components/DialogName"
 import { observer } from "mobx-react-lite"
 
 import { Text } from "../components"
-import { isRTL } from "../i18n"
 import { AppStackScreenProps } from "../navigators"
-import { colors, spacing } from "../theme"
+import { spacing } from "../theme"
 
 interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> {}
 

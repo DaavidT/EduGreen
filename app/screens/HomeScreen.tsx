@@ -1,20 +1,19 @@
 import {
+  Animated,
   Dimensions,
   Image,
   ImageStyle,
   Modal,
   ScrollView,
   StyleSheet,
-  Touchable,
   TouchableOpacity,
   View,
 } from "react-native"
 
-import React, { FC, useEffect, useState } from "react"
+import React, { FC, useEffect, useRef, useState } from "react"
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { Card, Screen, Text } from "app/components"
-import { Navbar } from "app/components/BottomNavbar"
+import { Card, Screen, Text, TitleLayout } from "app/components"
 import { useStores } from "app/models"
 import { AppStackScreenProps } from "app/navigators"
 import { getDownloadURL, getStorage, listAll, ref } from "firebase/storage"
@@ -66,43 +65,38 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen({
     )
   })
 
+  const scrollY = useRef(new Animated.Value(0)).current
   return (
-    <Screen style={styles.container} preset="scroll" safeAreaEdges={["top", "bottom"]}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          paddingHorizontal: 50,
-          paddingTop: 20,
-        }}
-      >
-        <Text text={getAuthUser} preset="heading" />
-      </View>
-      <Card
-        verticalAlignment="center"
-        heading="Bienvenido a EduGreen " // Aquí va el nombre del usuario
-        headingStyle={{ textAlign: "center", fontSize: 24, fontWeight: "bold" }}
-        content="Nuestra meta es dar a conocer información para que ayudes al planeta"
-        contentStyle={{ textAlign: "left", fontSize: 18 }}
-        style={{
-          backgroundColor: "#0bd17f",
-          marginVertical: 10,
-          marginHorizontal: 50,
-          height: 200,
-          borderColor: "#0bd17f",
-        }}
-      />
-      <Modal visible={modalVisible} transparent={true}>
-        <View style={styles.modal}>
-          <TouchableOpacity onPress={() => setModalVisible(false)}>
-            <Text text="Cerrar" preset="subheading" />
-          </TouchableOpacity>
-          <Image source={{ uri: url }} style={imagesStyles} />
+    <TitleLayout title="Bienvenido a EduGreen" scrollY={scrollY}>
+      <ScrollView>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            paddingHorizontal: 50,
+            paddingTop: 120,
+          }}
+        >
+          <Text text={getAuthUser} preset="heading" />
+          <Card
+            verticalAlignment="center"
+            preset="reversed"
+            heading="Nuestra meta es dar a conocer información para que ayudes al planeta"
+            content="Da click en las imagenes para ver mas informacion"
+            contentStyle={{ marginVertical: 20 }}
+          />
         </View>
-      </Modal>
-      <View style={styles.imageContainer}>{images}</View>
-    </Screen>
+        <Modal visible={modalVisible} transparent={true}>
+          <View style={styles.modal}>
+            <TouchableOpacity onPress={() => setModalVisible(false)}>
+              <Text text="Cerrar" preset="subheading" />
+            </TouchableOpacity>
+            <Image source={{ uri: url }} style={imagesStyles} />
+          </View>
+        </Modal>
+        <View style={styles.imageContainer}>{images}</View>
+      </ScrollView>
+    </TitleLayout>
   )
 })
 

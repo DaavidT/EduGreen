@@ -1,12 +1,11 @@
 import { ScrollView, StyleProp, TextStyle, View, ViewStyle } from "react-native"
-import { Button, Card, HelperText, TextInput } from "react-native-paper"
+import { Button, Card, TextInput } from "react-native-paper"
 
 import * as React from "react"
 import { Controller, useForm } from "react-hook-form"
 
 import { Text } from "app/components/Text"
-import { api } from "app/services/api"
-import { colors, typography } from "app/theme"
+import { colors } from "app/theme"
 import { observer } from "mobx-react-lite"
 
 export interface RegisterUserFormProps {

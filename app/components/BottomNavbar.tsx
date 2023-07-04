@@ -5,8 +5,6 @@ import * as React from "react"
 import { faGlobe, faIdCard, faNewspaper, faUserSecret } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { useTheme } from "@react-navigation/native"
-import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { AppStackScreenProps } from "app/navigators"
 
 type NavbarProps = {
   navigation: any

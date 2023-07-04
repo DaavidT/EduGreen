@@ -1,11 +1,9 @@
-import { Animated, TouchableOpacityProps, View } from "react-native"
+import { Animated, View } from "react-native"
 
 import React, { memo } from "react"
 
 import { useTheme } from "@react-navigation/native"
 import { Text } from "app/components"
-
-import { typography } from "../theme"
 
 export interface TitleLayoutProps {
   title: string
