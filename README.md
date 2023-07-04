@@ -1,22 +1,22 @@
-# Welcome to your new ignited app!
+# Bienvenido a EduGreen App
 
-[![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
+## Mi primera aplicación móvil con React Native
 
-## The latest and greatest boilerplate for Infinite Red opinions
+Esta aplicación móvil fue desarrollada con React Native, utilizando el boilerplate de Ignite, el cual es un generador de aplicaciones móviles de código abierto, creado por Infinite Red, que proporciona un punto de partida sólido para aplicaciones móviles y sitios web. Es un proyecto de código abierto, y estamos muy agradecidos con todos los contribuyentes que han ayudado a hacerlo genial.
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+## Inicio rápido
 
-Currently includes:
+1. Ejecuta `yarn install ` para instalar las dependencias.
+2. Ejecuta `npx expo start` para iniciar el servidor de desarrollo.
+3. Escanea el código QR con la aplicación Expo Go (Android) o la cámara (iOS).
 
-- React Native
-- React Navigation
-- MobX State Tree
-- TypeScript
-- And more!
+## Backend y base de datos
 
-## Quick Start
+En este proyecto se utilizó Firebase como backend y base de datos. Para poder utilizarlo, es necesario crear un proyecto en Firebase y configurar las credenciales en el archivo `.env` como el archivo `.env.example`.
 
-The Ignite boilerplate project's structure will look similar to this:
+## Estructura de archivos
+
+Ignite boilerplate utiliza una estructura de archivos que se basa en las mejores prácticas de React Native. Si bien no es necesario que sigas esta estructura, se recomienda que lo hagas, ya que es un buen punto de partida para la mayoría de las aplicaciones móviles.
 
 ```
 ignite-project
@@ -64,67 +64,35 @@ ignite-project
 
 ```
 
-### ./app directory
+## Exportar apk
 
-Included in an Ignite boilerplate project is the `app` directory. This is a directory you would normally have to create when using vanilla React Native.
+1. Para exportar el apk de la aplicación, es necesario ejecutar el siguiente comando en la carpeta root:
 
-The inside of the `app` directory looks similar to the following:
+`react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res`
+
+Nota: Si obtienes un error, asegurate que la carpeta `android/app/src/main/assets` exista.
+
+2. Ejecuta `cd android && ./gradlew assembleRelease` para generar el apk.
+
+3. El apk se encuentra en la siguiente ruta: `android/app/build/outputs/apk/release/app-release.apk`
+
+## Limpiar cache
+
+Si deseas limpiar el cache de la aplicación, ejecuta el siguiente comando en la carpeta root:
+`npx expo start --clear`
+
+## Generadores
+
+Para crear un elemento a base de los templates que se encuentran en la carpeta ignite/templates, se debe ejecutar el siguiente comando:
+
+```bash
+npx ignite-cli generate --help
 
 ```
-app
-├── components
-├── config
-├── i18n
-├── models
-├── navigators
-├── screens
-├── services
-├── theme
-├── utils
-├── app.tsx
-```
 
-**components**
-This is where your reusable components live which help you build your screens.
-
-**i18n**
-This is where your translations will live if you are using `react-native-i18n`.
-
-**models**
-This is where your app's models will live. Each model has a directory which will contain the `mobx-state-tree` model file, test file, and any other supporting files like actions, types, etc.
-
-**navigators**
-This is where your `react-navigation` navigators will live.
-
-**screens**
-This is where your screen components will live. A screen is a React component which will take up the entire screen and be part of the navigation hierarchy. Each screen will have a directory containing the `.tsx` file, along with any assets or other helper files.
-
-**services**
-Any services that interface with the outside world will live here (think REST APIs, Push Notifications, etc.).
-
-**theme**
-Here lives the theme for your application, including spacing, colors, and typography.
-
-**utils**
-This is a great place to put miscellaneous helpers and utilities. Things like date helpers, formatters, etc. are often found here. However, it should only be used for things that are truly shared across your application. If a helper or utility is only used by a specific component or model, consider co-locating your helper with that component or model.
-
-**app.tsx** This is the entry point to your app. This is where you will find the main App component which renders the rest of the application.
-
-### ./ignite directory
-
-The `ignite` directory stores all things Ignite, including CLI and boilerplate items. Here you will find templates you can customize to help you get started with React Native.
-
-### ./test directory
-
-This directory will hold your Jest configs and mocks.
-
-## Running Maestro end-to-end tests
-
-Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe from the [Ignite Cookbook](https://ignitecookbook.com/)!
-
-## Previous Boilerplates
-
-- [2018 aka Bowser](https://github.com/infinitered/ignite-bowser)
-- [2017 aka Andross](https://github.com/infinitered/ignite-andross)
-- [2016 aka Ignite 1.0](https://github.com/infinitered/ignite-ir-boilerplate-2016)
-
+- app-icon
+- component
+- model
+- navigator
+- screen
+- splash-screen
