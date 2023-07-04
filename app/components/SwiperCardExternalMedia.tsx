@@ -75,7 +75,7 @@ const $cardContainer: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#427a36",
+  backgroundColor: "#DFE3D8",
   borderRadius: 20,
 }
 
@@ -84,5 +84,5 @@ const $text: TextStyle = {
   paddingHorizontal: 20,
   fontFamily: typography.primary.normal,
   fontSize: 14,
-  color: colors.palette.primary500,
+  color: "#333622",
 }

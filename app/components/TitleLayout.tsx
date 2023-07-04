@@ -4,6 +4,7 @@ import React, { memo } from "react"
 
 import { useTheme } from "@react-navigation/native"
 import { Text } from "app/components"
+import { StatusBar } from "expo-status-bar"
 
 export interface TitleLayoutProps {
   title: string
@@ -21,9 +22,10 @@ export const TitleLayout = memo(function TitleLayout(props: TitleLayoutProps) {
 
   return (
     <View style={styles.container}>
+      <StatusBar style="light" />
       <Animated.View
         style={{
-          backgroundColor: colors.background,
+          backgroundColor: colors.primary,
           width: "100%",
           height: 220,
           position: "absolute",
@@ -51,7 +53,7 @@ export const TitleLayout = memo(function TitleLayout(props: TitleLayoutProps) {
             paddingTop: 16,
             marginBottom: 23,
             paddingHorizontal: 32,
-            color: "#F9FAFB",
+            color: "#F3F2EE",
             fontSize: 25,
             fontWeight: "bold",
           }}
@@ -72,7 +74,7 @@ const styles = {
   },
   container: {
     flex: 1,
-    backgroundColor: "#365b2d",
+    backgroundColor: "#F2F3EF",
   },
 
   contentContainer: {

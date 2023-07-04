@@ -80,15 +80,15 @@ const $dotStyle: ViewStyle = {
   width: 8,
   height: 8,
   borderRadius: 4,
-  backgroundColor: "#fff",
+  backgroundColor: "#49521C",
   margin: 4,
 }
 
 const $activeDotStyle: ViewStyle = {
-  width: 16,
-  height: 8,
+  width: 8,
+  height: 16,
   borderRadius: 4,
-  backgroundColor: "#fff",
+  backgroundColor: "#333622",
   margin: 4,
 }
 
@@ -108,7 +108,7 @@ const $cardContainer: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#427a36",
+  backgroundColor: "#DFE3D8",
   marginHorizontal: 20,
   borderRadius: 10,
 }

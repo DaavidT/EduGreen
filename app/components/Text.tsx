@@ -66,12 +66,12 @@ export function Text(props: TextProps) {
   const preset: Presets = $presets[props.preset] ? props.preset : "default"
 
   const $styles = [
+    { color: "#333622" },
     $rtlStyle,
     $presets[preset],
     $fontWeightStyles[weight],
     $sizeStyles[size],
     $styleOverride,
-    { color: themeColor.text },
   ]
 
   return (

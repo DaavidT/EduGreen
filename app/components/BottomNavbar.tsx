@@ -33,7 +33,7 @@ export const Navbar = (props: NavbarProps) => {
         <View
           style={{
             height: 73,
-            backgroundColor: colors.background,
+            backgroundColor: colors.border,
             position: "absolute",
             bottom: 0,
             left: 0,

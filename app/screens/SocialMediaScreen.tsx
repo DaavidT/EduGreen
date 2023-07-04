@@ -21,7 +21,7 @@ export const SocialMediaScreen: FC<SocialMediaScreenProps> = observer(function S
         style={{ ...$subTitle, paddingTop: 120, paddingBottom: 20 }}
       />
       <ScrollView>
-        <Text text="Redes sociales del desarrollador" style={$cardTitle} />
+        <Text text="Redes sociales del desarrollador" style={{ ...$cardTitle, color: "#F3F2EE" }} />
         <SwiperCard style={$swiperCardStyle} />
 
         <Text

@@ -95,11 +95,7 @@ export const AppNavigator = observer(function AppNavigator(props: NavigationProp
   useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
 
   return (
-    <NavigationContainer
-      ref={navigationRef}
-      theme={colorScheme === "dark" ? DarkTheme : LightTheme}
-      {...props}
-    >
+    <NavigationContainer ref={navigationRef} theme={DarkTheme} {...props}>
       <AppStack />
       {authLogged ? <Navbar navigation={navigationRef} /> : null}
     </NavigationContainer>

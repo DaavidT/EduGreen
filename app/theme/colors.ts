@@ -12,7 +12,7 @@ const palette = {
   neutral600: "#564E4A",
   neutral700: "#3C3836",
   //Background Dark && Text Light
-  neutral800: "#243d1e",
+  neutral800: "#333622",
   neutral900: "#000000",
 
   primary100: "#8DD4DF",
@@ -107,11 +107,11 @@ export const LightTheme: Theme = {
 export const DarkTheme: Theme = {
   dark: true,
   colors: {
-    primary: palette.primary100,
-    background: palette.neutral800,
-    card: palette.neutral800,
+    primary: "#333622",
+    background: "#F3F2EF",
+    card: "#49521C",
     text: palette.neutral300,
-    border: palette.neutral800,
+    border: "#4A511E",
     notification: palette.primary100,
     transparent05: "rgba(0, 0, 0, 0.5)",
     transparentInverse: "rgba(255, 255, 255, 0.5)",
